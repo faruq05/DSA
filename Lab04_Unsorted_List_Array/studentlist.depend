@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1712854939 source:d:\project cse 115.4l\simple result system\studentlist\studentinfo.cpp
+	"studentInfo.h"
+
+1712854932 d:\project cse 115.4l\simple result system\studentlist\studentinfo.h
+	<iostream>
+
+1712855079 source:d:\project cse 115.4l\simple result system\studentlist\main.cpp
+	<iostream>
+	"unsortedtype.cpp"
+	"studentInfo.h"
+
+1712085388 d:\project cse 115.4l\simple result system\studentlist\studentinfo.cpp
+	"studentInfo.h"
+
+1712855059 d:\project cse 115.4l\simple result system\studentlist\unsortedtype.cpp
+	"UnsortedType.h"
+
+1712855023 d:\project cse 115.4l\simple result system\studentlist\unsortedtype.h
+
+1712855059 source:d:\project cse 115.4l\simple result system\studentlist\unsortedtype.cpp
+	"UnsortedType.h"
+

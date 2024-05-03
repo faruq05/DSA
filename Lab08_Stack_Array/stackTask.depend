@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1713149113 source:c:\users\lib-606 faculty pc\desktop\new folder\stacktask\stacktype.cpp
+	"StackType.h"
+
+1713149092 c:\users\lib-606 faculty pc\desktop\new folder\stacktask\stacktype.h
+
+1713190931 source:d:\nsu\dsa\stacktask\main.cpp
+	<iostream>
+	"stackType.cpp"
+
+1713149113 d:\nsu\dsa\stacktask\stacktype.cpp
+	"StackType.h"
+
+1713149092 d:\nsu\dsa\stacktask\stacktype.h
+
