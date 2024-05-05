@@ -29,22 +29,22 @@ void checkFull(bool queue)
     }
 }
 
-void PrintQueue(QueType<int> &qtemp)
+void PrintQueue(QueType<int> &qu)
 {
     QueType<int> temp;
-    while (!qtemp.IsEmpty())
+    while (!qu.IsEmpty())
     {
         int value;
-        qtemp.Dequeue(value);
+        qu.Dequeue(value);
         cout << value << "\t";
         temp.Enqueue(value);
     }
     cout << endl;
-    while (!temp.IsEmpty())
+    while (!qu.IsFull())
     {
         int value;
         temp.Dequeue(value);
-        qtemp.Enqueue(value);
+        qu.Enqueue(value);
     }
 }
 

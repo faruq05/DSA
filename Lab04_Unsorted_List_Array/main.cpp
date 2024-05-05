@@ -1,6 +1,8 @@
 #include <iostream>
 #include "unsortedtype.cpp"
+#include "unsortedtype.h"
 #include "studentInfo.h"
+#include "studentInfo.cpp"
 using namespace std;
 
 int main()
@@ -160,3 +162,5 @@ int main()
     }
 
 }
+
+

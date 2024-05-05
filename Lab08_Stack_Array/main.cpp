@@ -35,7 +35,7 @@ void PrintStack(StackType<int> obj)
         temp.Push(obj.Top());
         obj.Pop();
     }
-    while (!temp.IsEmpty())
+    while (!obj.IsFull())
     {
         cout << temp.Top() << " ";
         obj.Push(temp.Top());
@@ -46,31 +46,32 @@ void PrintStack(StackType<int> obj)
 
 int main()
 {
-    StackType<int> obj;
+    // StackType<int> obj;
 
-    checkEmpty(obj.IsEmpty());
+    // checkEmpty(obj.IsEmpty());
 
-    obj.Push(5);
-    obj.Push(7);
-    obj.Push(4);
-    obj.Push(2);
+    // obj.Push(5);
+    // obj.Push(7);
+    // obj.Push(4);
+    // obj.Push(2);
 
-    checkEmpty(obj.IsEmpty());
-    checkFull(obj.IsFull());
-    // Print stack
-    PrintStack(obj);
-    // push 3
-    obj.Push(3);
-    // Print stack after pushing 3
-    PrintStack(obj);
-    checkFull(obj.IsFull());
-    // pop two elements
-    cout << "Popped two elements" << endl;
-    obj.Pop();
-    obj.Pop();
-    checkEmpty(obj.IsEmpty());
-    //Print top elements of the stack
-    cout << "The top element of the stack is: " << obj.Top();
+    // checkEmpty(obj.IsEmpty());
+    // checkFull(obj.IsFull());
+    // // Print stack
+    // PrintStack(obj);
+    // // push 3
+    // obj.Push(3);
+    // // Print stack after pushing 3
+    // PrintStack(obj);
+    // checkFull(obj.IsFull());
+    // // pop two elements
+    // cout << "Popped two elements" << endl;
+    // obj.Pop();
+    // obj.Pop();
+    // checkEmpty(obj.IsEmpty());
+    // // Print top elements of the stack
+    // cout << "The top element of the stack is: " << obj.Top();
+
 
     StackType<char> parentheses;
     string str;
@@ -91,17 +92,20 @@ int main()
         {
             parentheses.Push(item);
         }
-        try{
-            if(item==')'){
+        try
+        {
+            if (item == ')')
+            {
                 parentheses.Pop();
             }
         }
-        catch(EmptyStack){
-            cout<<"Unbalanced"<<endl;
+        catch (EmptyStack)
+        {
+            cout << "Unbalanced" << endl;
             return 0;
         }
     }
-    
+
     if (parentheses.IsEmpty())
     {
         cout << "Balanced" << endl;

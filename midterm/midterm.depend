@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1714900920 source:d:\nsu\cse225\midterm\banklist.cpp
+
+1714903859 source:d:\nsu\cse225\midterm\sortedtype.cpp
+	"sortedtype.h"
+
+1714900810 d:\nsu\cse225\midterm\sortedtype.h
+
+1714904084 source:d:\nsu\cse225\midterm\bankrecord.cpp
+	"bankrecord.h"
+
+1714903967 d:\nsu\cse225\midterm\bankrecord.h
+	<string>
+	<iostream>
+
+1714902973 source:d:\nsu\cse225\midterm\main.cpp
+	<iostream>
+	"sortedtype.cpp"
+	"bankrecord.h"
+
+1714900851 d:\nsu\cse225\midterm\sortedtype.cpp
+	"sortedtype.h"
+
