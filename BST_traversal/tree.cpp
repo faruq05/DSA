@@ -17,17 +17,20 @@ public:
 };
 Node *ROOT;
 
-int depth(Node *node){
-    if(node==NULL){
+int depth(Node *node)
+{
+    if (node == NULL)
+    {
         return -1;
     }
     int leftofDepth = depth(node->left);
     int rightofDepth = depth(node->right);
 
-    return 1+max(leftofDepth, rightofDepth);
+    return 1 + max(leftofDepth, rightofDepth);
 }
 
-int height(Node *root){
+int height(Node *root)
+{
     return depth(root);
 }
 
@@ -69,6 +72,20 @@ void postorder(Node *node)
     cout << node->key << " ";
 }
 
+Node *findkey(Node *node, int target)
+{
+    if (node == NULL || node->key == target)
+    {   
+        return node;
+    }
+    Node *leftResult = findkey(node -> left, target);
+    if(leftResult!=NULL){
+        return leftResult;
+    }
+
+    return findkey(node -> right, target);
+}
+
 int main()
 {
     ROOT = new Node(100);
@@ -91,12 +108,21 @@ int main()
     preorder(ROOT); // 100 50 25 10 150 175
     cout << endl;
     cout << "In Order: ";
-    inorder(ROOT); //10 25 50 100 150 175
+    inorder(ROOT); // 10 25 50 100 150 175
     cout << endl;
     cout << "Post Order: ";
-    postorder(ROOT); //10 25 50 175 150 100
+    postorder(ROOT); // 10 25 50 175 150 100
 
-    cout<<endl<< "Depth of the tree: "<< depth(ROOT)<<endl;
-    cout<< "Height of the tree: "<< height(ROOT)<<endl;
+    cout << endl
+         << "Depth of the tree: " << depth(ROOT) << endl;
+    cout << "Height of the tree: " << height(ROOT) << endl;
+
+    int targetKey = 205;
+    Node* resultnode = findkey(ROOT, targetKey);
+    if(resultnode!=NULL){
+        cout<<"Found "<< targetKey <<" in the tree"<<endl;
+    }else{
+        cout<<targetKey<<" Not found in the tree"<<endl;
+    }
     return 0;
 }

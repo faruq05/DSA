@@ -1,3 +1,6 @@
+//Total passes (n-1)
+//Total Compariosn n(n-1)/2
+//Time complexity O(n^2)
 #include <iostream>
 using namespace std;
 

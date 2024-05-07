@@ -1,3 +1,6 @@
+//Total passes O(logn)
+//Total Compariosn O(n)
+//Time complexity O(nlogn)
 #include<iostream>
 using namespace std;
 
