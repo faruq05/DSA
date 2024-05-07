@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 class Node
@@ -15,6 +16,20 @@ public:
     }
 };
 Node *ROOT;
+
+int depth(Node *node){
+    if(node==NULL){
+        return -1;
+    }
+    int leftofDepth = depth(node->left);
+    int rightofDepth = depth(node->right);
+
+    return 1+max(leftofDepth, rightofDepth);
+}
+
+int height(Node *root){
+    return depth(root);
+}
 
 // preorder
 void preorder(Node *node)
@@ -73,12 +88,15 @@ int main()
 
     // tree https://prnt.sc/QZ0qqPiHithj
     cout << "Pre Order: ";
-    preorder(ROOT); // 100 50 25 150 175
+    preorder(ROOT); // 100 50 25 10 150 175
     cout << endl;
     cout << "In Order: ";
-    inorder(ROOT); // 25 50 100 150 175
+    inorder(ROOT); //10 25 50 100 150 175
     cout << endl;
     cout << "Post Order: ";
-    postorder(ROOT); // 25 50 175 150 100
+    postorder(ROOT); //10 25 50 175 150 100
+
+    cout<<endl<< "Depth of the tree: "<< depth(ROOT)<<endl;
+    cout<< "Height of the tree: "<< height(ROOT)<<endl;
     return 0;
 }

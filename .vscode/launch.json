@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/NSU/DSA/Lab04_Unsorted_List_Array",
-      "program": "d:/NSU/DSA/Lab04_Unsorted_List_Array/build/Debug/outDebug",
+      "cwd": "d:/NSU/DSA/single_linkList_theory",
+      "program": "d:/NSU/DSA/single_linkList_theory/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
