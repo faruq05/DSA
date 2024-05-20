@@ -4,77 +4,87 @@
 #include <unordered_map>
 using namespace std;
 
-int precedence(char op)
+// precedence of operators
+int precedence(char c)
 {
-    // operator
-    if (op == '+' || op == '-')
-        return 1;
-    if (op == '*' || op == '/')
+    if (c == '^')
+        return 3;
+    else if (c == '/' || c == '*')
         return 2;
-    return 0;
+    else if (c == '+' || c == '-')
+        return 1;
+    else
+        return -1;
 }
 
-string infixToPostfix(string infix)
+// associativity of operators 
+char associativity(char c)
+{
+    if (c == '^')
+        return 'R';
+    return 'L';
+}
+
+
+void infixToPostfix(string s)
 {
     stack<char> st;
-    string postfix = "";
-    unordered_map<char, int> precedenceMap;
+    string result;
 
-    precedenceMap['+'] = 1;
-    precedenceMap['-'] = 1;
-    precedenceMap['*'] = 2;
-    precedenceMap['/'] = 2;
-
-    for (char c : infix)
+    for (int i = 0; i < s.length(); i++)
     {
-        if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
-        {
-            postfix += c;
-        }
+        char c = s[i];
+
+        // If it is an operand add to the output string
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
+            result += c;
+
+        // If the scanned character is ( push in stack
         else if (c == '(')
-        {
-            // push ( to stack
-            st.push(c);
-        }
+            st.push('(');
+
+        // if user gives ) pop and add to output string from the stack, until get (
         else if (c == ')')
         {
-            // pop operators from stack until ( is encountered
-            while (!st.empty() && st.top() != '(')
+            while (st.top() != '(')
             {
-                postfix += st.top();
+                result += st.top();
                 st.pop();
             }
-            st.pop(); // remove ( from stack
+            st.pop(); // Pop '('
         }
+
+        // if Operator scanned
         else
         {
-            // character is an operator
-            while (!st.empty() && precedence(st.top()) >= precedence(c))
+            while (!st.empty() && precedence(s[i]) < precedence(st.top()) ||
+                   !st.empty() && precedence(s[i]) == precedence(st.top()) &&
+                       associativity(s[i]) == 'L')
             {
-                postfix += st.top();
+                result += st.top();
                 st.pop();
             }
-            st.push(c); // push current operator
+            st.push(c);
         }
     }
 
-    // pop remaining operators from stack to postfix
+    // pop rest elements
     while (!st.empty())
     {
-        postfix += st.top();
+        result += st.top();
         st.pop();
     }
 
-    return postfix;
+    cout << result << endl;
 }
 
-int main() {
-    string infix_expression;
-    cout << "Enter infix expression: ";
-    getline(cin, infix_expression);
-
-    string postfix_expression = infixToPostfix(infix_expression);
-    cout << "Postfix expression: " << postfix_expression << endl;
+int main()
+{
+    string exp;
+    cout << "Enter infix expression" << endl;
+    cin >> exp;
+    // a+b*(c^d-e)^(f+g*h)-i;                     
+    infixToPostfix(exp);
 
     return 0;
 }
